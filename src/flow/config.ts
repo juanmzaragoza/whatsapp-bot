@@ -4,41 +4,43 @@ export const flowData = {
   "flows": [
     {
       "name": EVENTS.WELCOME,
-      "question": "¡Hola! Acá te habla Alfredo Sánchez. ¿En qué puedo ayudarte hoy? 🤔\n\n💰 Quieres saber sobre el *precios* de los servicios?\n📅 Quieres que te cuente cuáles son los *planes* que tengo disponibles?\n💳 Prefieres tener información sobre *pagos*?\n📚 ¿Te gustaría conocer nuestra *metodología*?\n👨‍🏫 ¿Quieres información sobre mí, Alfredo Sánchez?",
+      "question": [
+        "¡Hola! Acá te habla Alfredo Sánchez. ¿En qué puedo ayudarte hoy? 🤔",
+        "💰 Quieres saber sobre el *precios* de los servicios?",
+        "📅 Quieres que te cuente cuáles son los *planes* que tengo disponibles?",
+        "💳 Prefieres tener información sobre *pagos*?",
+        "📚 ¿Te gustaría conocer nuestra *metodología*?",
+        "👨‍🏫 ¿Quieres información sobre mí, Alfredo Sánchez?"
+      ],
       "responses": [
         {
           "keyword": "precios",
           "answers": [
-            "💰 Quieres saber sobre el precio de los servicios?",
-            "🔍 Ver precios: /precios"
+            "💰 Quieres saber sobre el precio de los servicios?"
           ]
         },
         {
           "keyword": "planes",
           "answers": [
             "📅 Quieres que te cuente cuáles son los *planes* que tengo disponibles?",
-            "🔍 Ver planes: /planes"
           ]
         },
         {
           "keyword": "pagos",
           "answers": [
             "💳 Prefieres tener información sobre *pagos*?",
-            "🔍 Ver opciones de pago: /pagos"
           ]
         },
         {
           "keyword": "metodologia",
           "answers": [
             "📚 ¿Te gustaría conocer nuestra *metodología*?",
-            "🔍 Conocer metodología: /metodologia"
           ]
         },
         {
           "keyword": "coach",
           "answers": [
             "👨‍🏫 ¿Quieres información sobre mí, Alfredo Sánchez?",
-            "🔍 Conocer al coach: /coach"
           ]
         },
         {
@@ -191,3 +193,5 @@ export const flowData = {
     }
   ]
 };
+
+export const ADMIN_NUMBER = '+502 5643 9950';
