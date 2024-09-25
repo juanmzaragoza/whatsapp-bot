@@ -1,13 +1,8 @@
 import { createFlow } from '@builderbot/bot';
-import { flowData } from './config';
-import { flowHumanThisChat, flowHumanAllChats, blackListFlow, flowHumanBlacklist } from './flowHuman';
-import { createNestedFlows } from './helper/createNestedFlow';
+import { flowHumanBlacklist } from './flowHuman';
+import { flowWelcome } from './flowWelcome';
 
-const nestedFlows = createNestedFlows(flowData);
 export const adapterFlow = createFlow([
-  ...Object.values(nestedFlows), 
-  flowHumanThisChat,
-  flowHumanAllChats,
-  blackListFlow,
+  flowWelcome,
   flowHumanBlacklist
 ]);
