@@ -1,7 +1,7 @@
 import { addKeyword } from '@builderbot/bot';
 import { SelectedProvider } from '~/provider';
-import { changeBotStatusForThisUser, changeBotStatusGlobally, isBotEnabledForThisUser, isBotEnabledGlobally } from './helper/statusBot';
-import { numberClean } from './helper/utils';
+import { changeBotStatusForThisUser, changeBotStatusGlobally, isBotEnabledForThisUser, isBotEnabledGlobally } from './helper/status-bot.helper';
+import { numberClean } from './helper/utils.heper';
 import { ADMIN_NUMBER } from './config';
 import { SelectedDatabase } from '~/database';
 
