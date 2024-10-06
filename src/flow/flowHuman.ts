@@ -8,7 +8,7 @@ import { SelectedDatabase } from '~/database';
 /**
  * Esto abre un nuevo chat cuando se escribe "AGENTE"
  */
-export const flowHumanNewChat = addKeyword<typeof SelectedProvider>("5")
+export const flowHumanNewChat = addKeyword<typeof SelectedProvider & { getInstance }>("5")
   .addAnswer(
    "Estoy creando un grupo para que charles directamente con Juanma 🙂"
   )
