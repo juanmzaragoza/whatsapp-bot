@@ -8,7 +8,7 @@ import { SelectedDatabase } from '~/database';
 /**
  * Esto abre un nuevo chat cuando se escribe "AGENTE"
  */
-export const flowHumanNewChat = addKeyword<typeof SelectedProvider>("AGENTE")
+export const flowHumanNewChat = addKeyword<typeof SelectedProvider & { getInstance }>("AGENTE")
   .addAnswer(
    "Estamos desviando tu conversacion a nuestro agente"
   )

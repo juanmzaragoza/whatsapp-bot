@@ -17,7 +17,7 @@ export async function getGPTResponse(userMessage: string): Promise<string> {
     });
     console.log(completion.choices[0].message);
 
-    return completion.choices[0].message.trim();
+    return (completion.choices[0].message as unknown as string).trim();
   } catch (error) {
     console.error('Error:', error);
     return 'Sorry, I couldn’t process your request at the moment.';

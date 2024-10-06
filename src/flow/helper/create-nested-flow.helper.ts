@@ -29,6 +29,7 @@ export const createNestedFlows = (flowData) => {
                   await flowDynamic(answer);
                 } else if (typeof answer === 'object' && answer.text) {
                   if (answer.image) {
+                    // @ts-ignore 
                     await flowDynamic(answer.text, { media: answer.image });
                   } else{
                     await flowDynamic(answer.text);
