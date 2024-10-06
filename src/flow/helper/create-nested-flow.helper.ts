@@ -1,7 +1,7 @@
 import { addKeyword } from '@builderbot/bot';
 import { JsonFileDB as Database } from '@builderbot/database-json';
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys';
-import { isBotEnabledForThisUser, isBotEnabledGlobally } from './statusBot';
+import { isBotEnabledForThisUser, isBotEnabledGlobally } from './status-bot.helper';
 
 // Función para generar flujos con múltiples respuestas
 export const createNestedFlows = (flowData) => {
@@ -29,6 +29,7 @@ export const createNestedFlows = (flowData) => {
                   await flowDynamic(answer);
                 } else if (typeof answer === 'object' && answer.text) {
                   if (answer.image) {
+                    // @ts-ignore 
                     await flowDynamic(answer.text, { media: answer.image });
                   } else{
                     await flowDynamic(answer.text);

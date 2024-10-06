@@ -1,5 +1,5 @@
 import { createFlow } from '@builderbot/bot';
-import { flowHumanBlacklist, flowHumanNewChat } from './flowHuman';
+import { flowHumanNewChat } from './flowHuman';
 import { flowWelcome } from './flowWelcome';
 import { flowInfo } from './flowInfo';
 import { flowDefault } from './flowDefault';
