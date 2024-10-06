@@ -8,18 +8,18 @@ import { SelectedDatabase } from '~/database';
 /**
  * Esto abre un nuevo chat cuando se escribe "AGENTE"
  */
-export const flowHumanNewChat = addKeyword<typeof SelectedProvider>("AGENTE")
+export const flowHumanNewChat = addKeyword<typeof SelectedProvider>("5")
   .addAnswer(
-   "Estamos desviando tu conversacion a nuestro agente"
+   "Estoy creando un grupo para que charles directamente con Juanma 🙂"
   )
   .addAction(async (ctx, { provider }) => {
     const ID_GROUP = ctx.name;
     const refProvider = await provider.getInstance();
-    await refProvider.groupCreate(`Media Tech Support con (${ID_GROUP})`,[
+    await refProvider.groupCreate(`[CALCIO] Consulta personalizada con ${ID_GROUP}`,[
       `${ctx.from}@s.whatsapp.net`
     ]);
   })
-  .addAnswer('Te hemos agregado a un grupo con un asesor! Gracias');
+  .addAnswer('Te agregué a un grupo con Juanma! Gracias');
 
 export const flowHumanThisChat = addKeyword<typeof SelectedProvider>('humano2')
   .addAction(async (_, { state, endFlow }) => {
