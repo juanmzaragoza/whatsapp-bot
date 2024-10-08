@@ -36,6 +36,7 @@ export const flowWelcome = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   )
   .addAction(async (ctx, { gotoFlow })=> {
     const userAnswer = ctx.body;
-    const flow = flowConfigurations[userAnswer] ?? flowConfigurations['_default'];
+    const keys = Object.keys(flowConfigurations).filter((key) => userAnswer.includes(key));
+    const flow = keys.length ? flowConfigurations[keys[0]] : flowConfigurations['_default'];
     return gotoFlow(flow);
   })
