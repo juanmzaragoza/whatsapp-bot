@@ -17,7 +17,10 @@
     "@builderbot/provider-baileys": "1.2.2",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
-    "openai": "^4.62.1"
+    "google-auth-library": "^9.14.2",
+    "google-spreadsheet": "^4.1.4",
+    "openai": "^4.62.1",
+    "serve-static": "^1.16.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",

@@ -5,13 +5,13 @@ import { isBotEnabledForThisUser, isBotEnabledGlobally } from './status-bot.help
 
 // Función para generar flujos con múltiples respuestas
 export const createNestedFlows = (flowData) => {
-  const flows = {};
+  const flows = [];
 
   flowData.flows.forEach((flow) => {
     const { name, question, responses } = flow;
 
     // Crear flujo principal
-    flows[name] = addKeyword<Provider, Database>(name)
+    flows.push(addKeyword<Provider, Database>(name)
       .addAction(async (_, { state, globalState, endFlow }) => {
         const botEnabledForThisUser = isBotEnabledForThisUser(state);
         const botEnabledGlobally = isBotEnabledGlobally(globalState);
@@ -49,7 +49,7 @@ export const createNestedFlows = (flowData) => {
           return fallBack('Ups! Pasó algo!\n En un rato te contesto personalmente');
         }
 
-      });
+      }));
   });
 
   return flows;
