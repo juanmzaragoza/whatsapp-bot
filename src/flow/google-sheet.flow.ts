@@ -17,7 +17,7 @@ export const googleSheetFlow = addKeyword<typeof SelectedProvider>(EVENTS.ACTION
     
     const menus = await googleSheetService.retrieveData({ sheetNumber: 1 });
     if(menus) {
-      let response = "Estos son las excursiones disponibles en el día de la fecha: \n";
+      let response = "Estos son las excursiones - disponibles en el día de la fecha: \n";
       for (const menu of menus) {
         GLOBAL_STATE.push(menu);
         response = `${response}*[${menus.indexOf(menu)}]* ${menu[0]}\n`;
