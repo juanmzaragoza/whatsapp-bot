@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { createBot } from '@builderbot/bot';
 import { adapterFlow as flow } from './flow';
 import { provider } from './provider';
