@@ -6,6 +6,7 @@ import { flowWorks } from './flowWorks';
 import { flowServices } from './flowServices';
 import { flowArrangeMeeting } from './flowArrangeMeeting';
 import { flowHumanNewChat } from './flowHuman';
+import { googleSheetFlow } from './google-sheet.flow';
 
 const flowConfigurations = {
   '1': flowInfo,
@@ -13,6 +14,7 @@ const flowConfigurations = {
   '3': flowServices,
   '4': flowArrangeMeeting,
   '5': flowHumanNewChat,
+  '6': googleSheetFlow,
   '_default': flowDefault
 };
 
@@ -28,6 +30,7 @@ export const flowWelcome = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
       "*[3]* 💼 Servicios",
       "*[4]* 📅 Agendar una reunión",
       "*[5]* 📱 Hablá directamente conmigo",
+      "*[6]* ✈️ Excursiones",
       "",
       "*¿En qué tema te gustaría que te ayude hoy?*",
       "Podés preguntarme por detalles, precios, tiempos, o lo que necesites saber"

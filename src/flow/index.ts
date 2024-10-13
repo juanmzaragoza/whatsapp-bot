@@ -6,6 +6,7 @@ import { flowDefault } from './flowDefault';
 import { flowWorks } from './flowWorks';
 import { flowServices } from './flowServices';
 import { flowArrangeMeeting } from './flowArrangeMeeting';
+import { chooseOptionFlow, googleSheetFlow } from './google-sheet.flow';
 
 export const adapterFlow = createFlow([
   flowWelcome,
@@ -14,5 +15,7 @@ export const adapterFlow = createFlow([
   flowServices,
   flowArrangeMeeting,
   flowHumanNewChat,
-  flowDefault
+  flowDefault,
+  googleSheetFlow,
+  chooseOptionFlow,
 ]);
