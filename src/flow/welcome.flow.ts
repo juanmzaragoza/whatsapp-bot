@@ -8,16 +8,6 @@ import { arrangeMeetingFlow } from './arrange-meeting.flow';
 import { flowHumanNewChat } from './human.flow';
 import { googleSheetFlow } from './google-sheet.flow';
 
-const flowConfigurations = {
-  '1': infoFlow,
-  '2': worksFlow,
-  '3': servicesFlow,
-  '4': arrangeMeetingFlow,
-  '5': flowHumanNewChat,
-  '6': googleSheetFlow,
-  '_default': defaultFlow
-};
-
 export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   .addAnswer(
       [
@@ -38,6 +28,17 @@ export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
     { capture: true }
   )
   .addAction(async (ctx, { gotoFlow })=> {
+
+    const flowConfigurations = {
+      '1': infoFlow,
+      '2': worksFlow,
+      '3': servicesFlow,
+      '4': arrangeMeetingFlow,
+      '5': flowHumanNewChat,
+      '6': googleSheetFlow,
+      '_default': defaultFlow
+    };
+    
     const userAnswer = ctx.body;
     const keys = Object.keys(flowConfigurations).filter((key) => userAnswer.includes(key));
     const flow = keys.length ? flowConfigurations[keys[0]] : flowConfigurations['_default'];
