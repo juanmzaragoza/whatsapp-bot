@@ -1,24 +1,24 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { SelectedProvider } from '~/provider';
-import { flowInfo } from './flowInfo';
-import { flowDefault } from './flowDefault';
-import { flowWorks } from './flowWorks';
-import { flowServices } from './flowServices';
-import { flowArrangeMeeting } from './flowArrangeMeeting';
-import { flowHumanNewChat } from './flowHuman';
+import { infoFlow } from './info.flow';
+import { defaultFlow } from './default.flow';
+import { worksFlow } from './works.flow';
+import { servicesFlow } from './services.flow';
+import { arrangeMeetingFlow } from './arrange-meeting.flow';
+import { flowHumanNewChat } from './human.flow';
 import { googleSheetFlow } from './google-sheet.flow';
 
 const flowConfigurations = {
-  '1': flowInfo,
-  '2': flowWorks,
-  '3': flowServices,
-  '4': flowArrangeMeeting,
+  '1': infoFlow,
+  '2': worksFlow,
+  '3': servicesFlow,
+  '4': arrangeMeetingFlow,
   '5': flowHumanNewChat,
   '6': googleSheetFlow,
-  '_default': flowDefault
+  '_default': defaultFlow
 };
 
-export const flowWelcome = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
+export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   .addAnswer(
       [
       "👋 *Hola! Soy Juanma, de Calcio.*",

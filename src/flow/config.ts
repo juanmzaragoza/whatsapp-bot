@@ -1,6 +1,7 @@
 import { EVENTS } from "@builderbot/bot";
 
 export const BACK_WORD = "volver";
+export const BACK_ANSWER = `Si querés *${BACK_WORD}*, solo decimelo 🔙`
 
 export const flowData = {
   "flows": [

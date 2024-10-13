@@ -1,8 +1,8 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { SelectedProvider } from '~/provider';
-import { flowWelcome } from './flowWelcome';
+import { welcomeFlow } from './welcome.flow';
 
-export const flowDefault = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
+export const defaultFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   .addAnswer(
     [
       "No entendi lo que me quisite decir 🫤",
@@ -10,5 +10,5 @@ export const flowDefault = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
     ],
   )
   .addAction(async (ctx, { gotoFlow })=> {
-    return gotoFlow(flowWelcome);
+    return gotoFlow(welcomeFlow);
   })

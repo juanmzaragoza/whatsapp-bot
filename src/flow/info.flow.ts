@@ -1,6 +1,6 @@
 import { getFlowWithoutSubFlow } from './helper/flows.helper';
 
-export const flowInfo = getFlowWithoutSubFlow({ 
+export const infoFlow = getFlowWithoutSubFlow({ 
   messages: [
     "*Calcio* nació ante la necesidad clara de pymes latinoamericanas de crecer, de incluirse en el mundo digital sin conocimientos o tantos recursos.",
     "",
