@@ -1,5 +1,7 @@
 import { EVENTS } from "@builderbot/bot";
 
+export const BACK_WORD = "volver";
+
 export const flowData = {
   "flows": [
     {

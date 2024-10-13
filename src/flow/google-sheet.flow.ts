@@ -1,6 +1,7 @@
 import { addKeyword, EVENTS } from "@builderbot/bot";
 import { SelectedProvider } from "~/provider";
 import GoogleSheetService from "~/services/sheets";
+import { BACK_WORD } from "./config";
 
 //TODO: move this line to a configuration service
 const googleSheetService = new GoogleSheetService("1Cd6jeYk3hgq7XPmxRG0L3RV0P5fBztKBQa1rUvqCsgc");
@@ -32,13 +33,13 @@ export const chooseOptionFlow = addKeyword<typeof SelectedProvider>(EVENTS.ACTIO
   .addAnswer(
     [
       "¿Sobre cuál te interesaría saber más?", 
-      "Si querés *volver*, solo decimelo 🔙"
+      `Si querés *${BACK_WORD}*, solo decimelo 🔙"`
     ],
     { capture: true },
     async (ctx, { fallBack, flowDynamic, gotoFlow }) => {
       const txt = ctx.body;
       // back the main menu
-      if(txt.trim().toLowerCase().includes("volver")) {
+      if(txt.trim().toLowerCase().includes(BACK_WORD)) {
         return gotoFlow(googleSheetFlow);
       } else{
         return await chooseTour({ txt, flowDynamic, fallBack, gotoFlow });
