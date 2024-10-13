@@ -1,6 +1,6 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { SelectedProvider } from '~/provider';
-import { flowWelcome } from '../flowWelcome';
+import { welcomeFlow } from '../welcome.flow';
 
 export const getFlowWithoutSubFlow = ({ messages = [ ] }) => {
   return addKeyword<typeof SelectedProvider>(EVENTS.ACTION)
@@ -10,7 +10,7 @@ export const getFlowWithoutSubFlow = ({ messages = [ ] }) => {
       const userAnswer = ctx.body;
       console.log(userAnswer)
       if (userAnswer.toLowerCase().includes('regresar')) {
-        return gotoFlow(flowWelcome);
+        return gotoFlow(welcomeFlow);
       } else{
         return fallBack('Upa! Pasó algo!\nSi querés *regresar*, solo tenés que escribirlo');
       }

@@ -1,6 +1,6 @@
 import { getFlowWithoutSubFlow } from './helper/flows.helper';
 
-export const flowServices = getFlowWithoutSubFlow({ 
+export const servicesFlow = getFlowWithoutSubFlow({ 
   messages: [
     "Ofrecemos una variedad de servicios tecnológicos para ayudarte a optimizar tu negocio:",
     "",
