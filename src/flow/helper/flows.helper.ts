@@ -13,7 +13,7 @@ export const getFlowWithoutSubFlow = ({ messages = [ ] }) => {
       if (userAnswer.toLowerCase().includes(BACK_WORD)) {
         return gotoFlow(welcomeFlow);
       } else{
-        return fallBack('Upa! Pasó algo!\nSi querés *regresar*, solo tenés que escribirlo');
+        return fallBack(`Upa! Pasó algo!\n${BACK_ANSWER}`);
       }
     }
   )
