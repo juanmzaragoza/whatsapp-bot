@@ -1,26 +1,26 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { SelectedProvider } from '~/provider';
-import { infoFlow } from './info.flow';
 import { defaultFlow } from './default.flow';
-import { worksFlow } from './works.flow';
-import { servicesFlow } from './services.flow';
-import { arrangeMeetingFlow } from './arrange-meeting.flow';
+import { twoDaysFlow } from './two-days.flow';
+import { moreTimeFlow } from './more-time.flow';
+import { moreDaysFlow } from './more-days.flow';
 import { flowHumanNewChat } from './human.flow';
 import { googleSheetFlow } from './google-sheet.flow';
+import { oneDayFlow } from './one-day.flow';
 
 export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   .addAnswer(
       [
-      "👋 *Hola! Soy Juanma, de Calcio.*",
+      "👋 *Hola! Soy Sebas, de The Host.*",
       "",
-      "Te voy a ayudar a agilizar lo que necesites en temas de tecnología y desarrollo. En Calcio nos especializamos en ofrecer soluciones rápidas y personalizadas para emprendedores y empresas que buscan mejorar su presencia digital.",
+      "Te voy a ayudar a agilizar y evacuar todas las dudas que tengas sobre Puerto Iguazú 🤗",
       "",
-      "*[1]* 🏢 Información sobre Calcio",
-      "*[2]* 🔨 Trabajos realizados",
-      "*[3]* 💼 Servicios",
-      "*[4]* 📅 Agendar una reunión",
-      "*[5]* 📱 Hablá directamente conmigo",
-      "*[6]* ✈️ Excursiones",
+      "*[1]* ☝🏻 ¿Qué atracciones principales puedo visitar si me quedo 1 día?",
+      "*[2]* ✌🏻 ¿Qué atracciones principales puedo visitar si me quedo 2 días?",
+      "*[3]* ⏳ ¿Qué otras cosas puedo hacer si tengo más tiempo/al regresar del Parque?",
+      "*[4]* 📅 ¿Qué hacer si tengo más días?",
+      "*[5]* ✈️ Excursiones",
+      "*[6]* 📱 Hablá directamente conmigo",
       "",
       "*¿En qué tema te gustaría que te ayude hoy?*",
       "Podés preguntarme por detalles, precios, tiempos, o lo que necesites saber"
@@ -30,12 +30,12 @@ export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   .addAction(async (ctx, { gotoFlow })=> {
 
     const flowConfigurations = {
-      '1': infoFlow,
-      '2': worksFlow,
-      '3': servicesFlow,
-      '4': arrangeMeetingFlow,
-      '5': flowHumanNewChat,
-      '6': googleSheetFlow,
+      '1': oneDayFlow,
+      '2': twoDaysFlow,
+      '3': moreTimeFlow,
+      '4': moreDaysFlow,
+      '5': googleSheetFlow,
+      '6': flowHumanNewChat,
       '_default': defaultFlow
     };
     

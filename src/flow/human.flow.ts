@@ -10,7 +10,7 @@ import { SelectedDatabase } from '~/database';
  */
 export const flowHumanNewChat = addKeyword<typeof SelectedProvider & { getInstance }>("5")
   .addAnswer(
-   "Estoy creando un grupo para que charles directamente con Juanma 🙂"
+   "Estoy creando un grupo para que charles directamente con Sebas 🙂"
   )
   .addAction(async (ctx, { provider }) => {
     const ID_GROUP = ctx.name;

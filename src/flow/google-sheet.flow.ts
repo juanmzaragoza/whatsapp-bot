@@ -11,7 +11,7 @@ const numberPattern = /\d+/g;
 
 export const googleSheetFlow = addKeyword<typeof SelectedProvider>(EVENTS.ACTION)
   .addAnswer(
-   "Estoy consultando los datos de tu archivo..."
+   "🕑 Estoy consultando las excursiones que tenemos para el día de hoy..."
   )
   .addAction(async (ctx, { flowDynamic, endFlow, gotoFlow }) => {
     
