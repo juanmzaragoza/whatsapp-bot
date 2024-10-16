@@ -6,7 +6,7 @@ import { welcomeFlow } from "./welcome.flow";
 
 //TODO: move this line to a configuration service
 const googleSheetService = new GoogleSheetService("1Cd6jeYk3hgq7XPmxRG0L3RV0P5fBztKBQa1rUvqCsgc");
-const GLOBAL_STATE = [];
+let GLOBAL_STATE = [];
 const numberPattern = /\d+/g;
 
 export const googleSheetFlow = addKeyword<typeof SelectedProvider>(EVENTS.ACTION)
@@ -18,6 +18,7 @@ export const googleSheetFlow = addKeyword<typeof SelectedProvider>(EVENTS.ACTION
     const menus = await googleSheetService.retrieveData({ sheetNumber: 1 });
     if(menus) {
       let response = "Estos son las excursiones - disponibles en el día de la fecha: \n";
+      GLOBAL_STATE = [];
       for (const menu of menus) {
         GLOBAL_STATE.push(menu);
         response = `${response}*[${menus.indexOf(menu)}]* ${menu[0]}\n`;
