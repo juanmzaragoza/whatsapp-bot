@@ -7,8 +7,16 @@ import { moreDaysFlow } from './more-days.flow';
 import { flowHumanNewChat } from './human.flow';
 import { googleSheetFlow } from './google-sheet.flow';
 import { oneDayFlow } from './one-day.flow';
+import { selectLangFlow } from './select-lang.flow';
 
 export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
+  .addAction(async (ctx, { state, gotoFlow })=> {
+    const lang = state.get('language');
+    console.log("[DEBUG] welcomeFlow.ts ~ state.get('language') -> ", lang);
+    if(!lang) {
+      return gotoFlow(selectLangFlow);
+    }
+  })
   .addAnswer(
       [
       "👋 *Hola! Soy Sebas, de The Host.*",

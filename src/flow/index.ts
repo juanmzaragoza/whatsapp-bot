@@ -7,6 +7,7 @@ import { twoDaysFlow } from './two-days.flow';
 import { moreTimeFlow } from './more-time.flow';
 import { moreDaysFlow } from './more-days.flow';
 import { defaultFlow } from './default.flow';
+import { selectLangFlow } from './select-lang.flow';
 
 export const adapterFlow = createFlow([
   welcomeFlow,
@@ -17,5 +18,6 @@ export const adapterFlow = createFlow([
   flowHumanNewChat,
   googleSheetFlow,
   chooseOptionFlow,
-  defaultFlow
+  defaultFlow,
+  selectLangFlow
 ]);
