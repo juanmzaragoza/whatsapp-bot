@@ -29,7 +29,8 @@ export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
       __("*[3]* ⏳ ¿Qué otras cosas puedo hacer si tengo más tiempo/al regresar del Parque?"),
       __("*[4]* 📅 ¿Qué hacer si tengo más días?"),
       __("*[5]* ✈️ Excursiones"),
-      __("*[6]* 📱 Hablá directamente conmigo"),
+      __("*[6]* 🇦🇷 Select language"),
+      __("*[7]* 📱 Hablá directamente conmigo"),
       "",
       __("*¿En qué tema te gustaría que te ayude hoy?*"),
       __("Podés preguntarme por detalles, precios, tiempos, o lo que necesites saber")
@@ -45,7 +46,8 @@ export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
       '3': moreTimeFlow,
       '4': moreDaysFlow,
       '5': googleSheetFlow,
-      '6': flowHumanNewChat,
+      '6': selectLangFlow,
+      '7': flowHumanNewChat,
       '_default': defaultFlow
     };
     

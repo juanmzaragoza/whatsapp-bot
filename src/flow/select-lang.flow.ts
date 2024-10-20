@@ -22,9 +22,9 @@ export const selectLangFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME
   .addAction(async (ctx, { state, gotoFlow })=> {
     const lang = state.get('language');
     console.log("[DEBUG] selectLangFlow.ts ~ state.get('language') -> ", lang);
-    if(lang) {
+    /*if(lang) {
       return gotoFlow(welcomeFlow);
-    }
+    }*/
   })
   .addAnswer(
     [
