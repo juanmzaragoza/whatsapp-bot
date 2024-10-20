@@ -29,7 +29,7 @@ export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
       __("*[3]* ⏳ ¿Qué otras cosas puedo hacer si tengo más tiempo/al regresar del Parque?"),
       __("*[4]* 📅 ¿Qué hacer si tengo más días?"),
       __("*[5]* ✈️ Excursiones"),
-      __("*[6]* 🇦🇷 Select language"),
+      __("*[6]* 🇦🇷 Cambiar idioma"),
       __("*[7]* 📱 Hablá directamente conmigo"),
       "",
       __("*¿En qué tema te gustaría que te ayude hoy?*"),
