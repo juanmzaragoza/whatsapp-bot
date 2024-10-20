@@ -13,6 +13,9 @@ export const i18n = new I18n({
 });
 
 export const __ = (key = ''): string => {
+  console.log("[DEBUG] src/config/i18n.config.ts ~ __dirname: ", __dirname, path.join(__dirname, 'locales'));
+  console.log("[DEBUG] src/config/i18n.config.ts ~ key, i18n.__(key) ", key, i18n.__(key));
+  console.log("[DEBUG] src/config/i18n.config.ts ~ i18n.getLanguage() ", i18n.getLocale());
   return i18n.__(key);
 }
 
