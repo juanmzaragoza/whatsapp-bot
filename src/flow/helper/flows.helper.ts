@@ -9,7 +9,7 @@ export const getFlowWithoutSubFlow = ({ messages = [ ] }) => {
   .addAction(async (ctx, { flowDynamic })=> {
     console.log("[DEBUG] flows.helper.ts ~ i18n.getLocale() -> ", i18n.getLocale());
     return await flowDynamic([
-      ...messages.map(message => __(message)), 
+      ...messages.map(message => message != "" ? __(message) : message), 
       __(BACK_ANSWER)
     ].join("\n"));
   })
