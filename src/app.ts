@@ -15,6 +15,12 @@ const main = async () => {
       flow,
       provider,
       database,
+    },
+    {
+      queue: {
+        timeout: 30000, //👌
+        concurrencyLimit: 50 //👌
+      }
     }
   );
 
