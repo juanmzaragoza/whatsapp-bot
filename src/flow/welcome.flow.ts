@@ -1,10 +1,10 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { SelectedProvider } from '~/provider';
 import { defaultFlow } from './default.flow';
-import { placeOrderFlow } from './place-order.flow';
-import { moreTimeFlow } from './more-time.flow';
+import { googleSheetPlaceOrderFlow } from './google-sheet-place-order.flow';
 import { flowHumanNewChat } from './human.flow';
 import { googleSheetPricesFlow } from './google-sheet-prices.flow';
+import { googleSheetStatusOrderFlow } from './google-sheet-status-order.flow';
 
 export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   .addAnswer(
@@ -27,8 +27,8 @@ export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
 
     const flowConfigurations = {
       '1': googleSheetPricesFlow,
-      '2': placeOrderFlow,
-      '3': moreTimeFlow,
+      '2': googleSheetPlaceOrderFlow,
+      '3': googleSheetStatusOrderFlow,
       '4': flowHumanNewChat,
       '_default': defaultFlow
     };

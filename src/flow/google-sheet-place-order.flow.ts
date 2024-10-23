@@ -1,20 +1,12 @@
 import { addKeyword, EVENTS } from "@builderbot/bot";
 import { SelectedProvider } from "~/provider";
 import GoogleSheetService from "~/services/sheets";
-import { BACK_ANSWER, BACK_WORD } from "./config";
+import { BACK_ANSWER, SHEET_CLIENTS_HEADERS, SHEET_CLIENTS_TITLE } from "./config";
 import { getDateNow, todaySheetName } from "./helper/utils.heper";
-
-//TODO: move these lines to a configuration service
-const SHEET_CLIENTS_TITLE = "Clientes";
-const SHEET_CLIENTS_HEADERS = {
-  0: "Nombre y apellido",
-  1: "Email",
-  2: "Telefono"
-};
 
 const googleSheetService = new GoogleSheetService(process.env.GOOGLE_SHEET_ID);
 
-export const placeOrderFlow = addKeyword<typeof SelectedProvider>(EVENTS.ACTION)
+export const googleSheetPlaceOrderFlow = addKeyword<typeof SelectedProvider>(EVENTS.ACTION)
   .addAnswer(
    "🕑 Un momento por favor..."
   )
@@ -130,6 +122,7 @@ export const saveProductFlow = addKeyword<typeof SelectedProvider>(EVENTS.ACTION
         sheetTitle: dateToday, 
         createSheetByName: true,
         data: {
+          "telefono": ctx.from,
           "cliente": state.get('Nombre y apellido'),
           "dia": getDateNow(),
           "pedido": order,
