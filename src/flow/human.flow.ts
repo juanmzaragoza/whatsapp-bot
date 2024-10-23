@@ -10,7 +10,7 @@ import { SelectedDatabase } from '~/database';
  */
 export const flowHumanNewChat = addKeyword<typeof SelectedProvider & { getInstance }>("5")
   .addAnswer(
-   "Estoy creando un grupo para que charles directamente con Sebas 🙂"
+   "Estoy creando un grupo para que charles directamente con Leo 🙂"
   )
   .addAction(async (ctx, { provider }) => {
     const ID_GROUP = ctx.name;
@@ -19,7 +19,7 @@ export const flowHumanNewChat = addKeyword<typeof SelectedProvider & { getInstan
       `${ctx.from}@s.whatsapp.net`
     ]);
   })
-  .addAnswer('Te agregué a un grupo con Juanma! Gracias');
+  .addAnswer('Te agregué a un grupo con Leo! Gracias');
 
 export const flowHumanThisChat = addKeyword<typeof SelectedProvider>('humano2')
   .addAction(async (_, { state, endFlow }) => {

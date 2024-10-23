@@ -1,21 +1,20 @@
 import { createFlow } from '@builderbot/bot';
-import { chooseOptionFlow, googleSheetFlow } from './google-sheet.flow';
+import { goBackOptionFlow, googleSheetPricesFlow } from './google-sheet-prices.flow';
 import { flowHumanNewChat } from './human.flow';
 import { welcomeFlow } from './welcome.flow';
-import { oneDayFlow } from './one-day.flow';
-import { twoDaysFlow } from './two-days.flow';
+import { placeOrderFlow, placeProductFlow, registerClientFlow, saveProductFlow } from './place-order.flow';
 import { moreTimeFlow } from './more-time.flow';
-import { moreDaysFlow } from './more-days.flow';
 import { defaultFlow } from './default.flow';
 
 export const adapterFlow = createFlow([
   welcomeFlow,
-  oneDayFlow,
-  twoDaysFlow,
+  googleSheetPricesFlow,
+  placeOrderFlow,
   moreTimeFlow,
-  moreDaysFlow,
   flowHumanNewChat,
-  googleSheetFlow,
-  chooseOptionFlow,
-  defaultFlow
+  defaultFlow,
+  registerClientFlow,
+  placeProductFlow,
+  goBackOptionFlow,
+  saveProductFlow
 ]);

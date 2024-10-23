@@ -31,11 +31,11 @@ class GoogleSheetService {
    * @param {*} range
    * @returns
    */
-  retrieveData = async ({ sheetNumber = 0, range = 'A:D' }) => {
+  retrieveData = async ({ sheetTitle = undefined, sheetNumber = 0, range = 'A:D' }) => {
     try {
       const list = [];
       await this.doc.loadInfo();
-      const sheet = this.doc.sheetsByIndex[sheetNumber]; // the first sheet
+      const sheet = sheetTitle? this.doc.sheetsByTitle[sheetTitle] : this.doc.sheetsByIndex[sheetNumber]; // the first sheet
       console.log("[DEBUG] sheet.rowCount: ", sheet.rowCount);
       await sheet.loadCells(range);
       console.log("[DEBUG] sheet.cellStats: ",sheet.cellStats);
@@ -53,23 +53,21 @@ class GoogleSheetService {
   };
 
   /**
-   * Guardar pedido
+   * save data on file
    * @param {*} data
    */
-  /*saveOrder = async (data = {}) => {
+  saveData = async ({ sheetTitle = undefined, sheetNumber = 0, data = {}, createSheetByName = false }) => {
     await this.doc.loadInfo();
-    const sheet = this.doc.sheetsByIndex[1]; // the first sheet
-
-    const order = await sheet.addRow({
-      fecha: data.fecha,
-      telefono: data.telefono,
-      nombre: data.nombre,
-      pedido: data.pedido,
-      observaciones: data.observaciones,
-    });
-
-    return order
-  };*/
+    let sheet;
+    if(createSheetByName && sheetTitle) {
+      sheet = this.doc.sheetsByTitle[sheetTitle] ??
+        await this.doc.addSheet({ title: sheetTitle, headerValues: Object.keys(data) });
+    } else{
+      sheet = sheetTitle? this.doc.sheetsByTitle[sheetTitle] : this.doc.sheetsByIndex[sheetNumber];
+    }
+    const row = await sheet.addRow({...data});
+    return row;
+  };
 }
 
 export default GoogleSheetService;

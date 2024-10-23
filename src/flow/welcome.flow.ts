@@ -1,26 +1,22 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { SelectedProvider } from '~/provider';
 import { defaultFlow } from './default.flow';
-import { twoDaysFlow } from './two-days.flow';
+import { placeOrderFlow } from './place-order.flow';
 import { moreTimeFlow } from './more-time.flow';
-import { moreDaysFlow } from './more-days.flow';
 import { flowHumanNewChat } from './human.flow';
-import { googleSheetFlow } from './google-sheet.flow';
-import { oneDayFlow } from './one-day.flow';
+import { googleSheetPricesFlow } from './google-sheet-prices.flow';
 
 export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   .addAnswer(
       [
-      "👋 *Hola! Soy Sebas, de The Host.*",
+      "👋 *Hola! Soy Leo, el panadero de tu vida 🍞.*",
       "",
-      "Te voy a ayudar a agilizar y evacuar todas las dudas que tengas sobre Puerto Iguazú 🤗",
+      "Te voy a ayudar a agilizar y evacuar todas las dudas que tengas sobre nuestros productos 🤗",
       "",
-      "*[1]* ☝🏻 ¿Qué atracciones principales puedo visitar si me quedo 1 día?",
-      "*[2]* ✌🏻 ¿Qué atracciones principales puedo visitar si me quedo 2 días?",
-      "*[3]* ⏳ ¿Qué otras cosas puedo hacer si tengo más tiempo/al regresar del Parque?",
-      "*[4]* 📅 ¿Qué hacer si tengo más días?",
-      "*[5]* ✈️ Excursiones",
-      "*[6]* 📱 Hablá directamente conmigo",
+      "*[1]* ☝🏻 Listado de precios del día de hoy",
+      "*[2]* 📋 Hacer tu pedido",
+      "*[3]* ⏳ Estado de mi pedido",
+      "*[4]* 📱 Hablá directamente conmigo",
       "",
       "*¿En qué tema te gustaría que te ayude hoy?*",
       "Podés preguntarme por detalles, precios, tiempos, o lo que necesites saber"
@@ -30,12 +26,10 @@ export const welcomeFlow = addKeyword<typeof SelectedProvider>(EVENTS.WELCOME)
   .addAction(async (ctx, { gotoFlow })=> {
 
     const flowConfigurations = {
-      '1': oneDayFlow,
-      '2': twoDaysFlow,
+      '1': googleSheetPricesFlow,
+      '2': placeOrderFlow,
       '3': moreTimeFlow,
-      '4': moreDaysFlow,
-      '5': googleSheetFlow,
-      '6': flowHumanNewChat,
+      '4': flowHumanNewChat,
       '_default': defaultFlow
     };
     
